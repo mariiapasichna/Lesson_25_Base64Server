@@ -6,7 +6,6 @@ import com.mariiapasichna.dao.ImageDao;
 import com.mariiapasichna.model.Image;
 
 import javax.ws.rs.Consumes;
-import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -24,10 +23,11 @@ public class DataBaseApi {
 
     @POST
     @Path("/")
-    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response createImage(@FormParam("name") String name, @FormParam("image") String image) {
-        Image inputImage = new Image(name, image);
+    public Response createImage(String json) {
+        Gson gson = new Gson();
+        Image inputImage = gson.fromJson(json, Image.class);
         Image saveImage = imageDao.addImage(inputImage);
         if (saveImage.getId() != 0) {
             String resultJson = "{\"result\":\"success\"}";

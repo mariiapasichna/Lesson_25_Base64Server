@@ -8,6 +8,9 @@
         <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
         <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQL95Dialect</property>
         <property name="hibernate.connection.url">jdbc:postgresql://127.0.0.1:5433/lesson25</property>
+<!--        <property name="hibernate.connection.url">jdbc:postgresql://164.68.101.149:12347/mariiapasichna</property>-->
+<!--        <property name="hibernate.connection.username">postgres</property>-->
+<!--        <property name="hibernate.connection.password"></property>-->
         <mapping class="com.mariiapasichna.model.Image"/>
     </session-factory>
 </hibernate-configuration>

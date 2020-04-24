@@ -5,6 +5,7 @@ import com.mariiapasichna.model.Image;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
 
 import java.util.List;
 
@@ -14,6 +15,7 @@ public class ImageDao {
 
     public ImageDao() {
         sessionFactory = Configurations.getConfigurations();
+        //sessionFactory = new Configuration().configure().buildSessionFactory();
     }
 
     public Image addImage(Image image) {
